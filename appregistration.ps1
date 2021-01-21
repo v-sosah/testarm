@@ -4,7 +4,4 @@ $appHomePageUrl = "http://www.tailwindtraders.com/"
 $appReplyURLs = @($appURI, $appHomePageURL, "https://localhost:1234")
 Install-Module -Name "AzureAD" -AllowClobber -Force
 connect-AzureAD
-if(!($myApp = Get-AzureADApplication -Filter "DisplayName eq '$($appName)'"  -ErrorAction SilentlyContinue))
-{
-    $myApp = New-AzureADApplication -DisplayName $appName -IdentifierUris $appURI -Homepage $appHomePageUrl -ReplyUrls $appReplyURLs    
-}
+$myApp = New-AzureADApplication -DisplayName $appName -IdentifierUris $appURI -Homepage $appHomePageUrl -ReplyUrls $appReplyURLs    
